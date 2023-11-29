@@ -1,8 +1,13 @@
+'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
+import './index.js'
+import { Button } from 'react-bootstrap';
+import BasicExample from './components/accordion';
 
 export default function Home() {
   return (
+    
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
@@ -12,6 +17,8 @@ export default function Home() {
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          
+
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,6 +35,9 @@ export default function Home() {
         </div>
       </div>
 
+      
+      <BasicExample />
+
       <div className={styles.center}>
         <Image
           className={styles.logo}
@@ -38,6 +48,16 @@ export default function Home() {
           priority
         />
       </div>
+  
+  <Button as="a" variant="primary">
+    Button as link
+  </Button>
+  <Button as="a" variant="success">
+    Button as link
+  </Button>
+
+
+
 
       <div className={styles.grid}>
         <a
