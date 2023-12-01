@@ -1,115 +1,33 @@
 'use client'
-import Image from 'next/image'
-import styles from './page.module.css'
-import './index.js'
-import { Button } from 'react-bootstrap';
-import BasicExample from './components/accordion';
+import React from 'react';
+import { Button, Container, Navbar, ListGroup } from 'react-bootstrap';
+import './index';
 
 export default function Home() {
   return (
-    
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          
+    <Container fluid className="app">
+      <Container fluid className="side-bar d-flex flex-column">
+        <Button variant="outline-info mt-3 w-100">+ New Chat</Button>
+        <ListGroup className="history mt-4">
+        <ListGroup.Item  action>
+        This one is a button
+      </ListGroup.Item >
+      <ListGroup.Item  action>
+        This one is a button
+      </ListGroup.Item >
+      <ListGroup.Item  action>
+        This one is a button
+      </ListGroup.Item >
+      <ListGroup.Item  action>
+        This one is a button
+      </ListGroup.Item >
 
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      
-      <BasicExample />
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-  
-  <Button as="a" variant="primary">
-    Button as link
-  </Button>
-  <Button as="a" variant="success">
-    Button as link
-  </Button>
-
-
-
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        </ListGroup>
+        <Navbar>
+          <p>Made by Jose Zepeda</p>
+        </Navbar>
+      </Container>
+      <Container className="main"></Container>
+    </Container>
+  );
 }
