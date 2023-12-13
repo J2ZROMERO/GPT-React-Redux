@@ -8,7 +8,7 @@ export default function Home() {
     <Container fluid className="app">
       <Container fluid className="side-bar d-flex flex-column">
         <Button variant="outline-info mt-3 w-100">+ New Chat</Button>
-        <ListGroup className="history mt-4">
+        <ListGroup className="history mt-4 h-100">
           <ListGroup.Item action>This one is a button</ListGroup.Item>
         </ListGroup>
 
@@ -22,8 +22,8 @@ export default function Home() {
 
         <ListGroup className="feed"></ListGroup>
         <Container className="bottom-section">
-          <Container className="input-container">
-            <Container className="submit">
+          <Container className="input-container p-0">
+            <Container className="submit ml-0 mr-0 p-0">
               <textarea rows={1} /> <h5 className="submit-icon"> &#62; </h5>
             </Container>
 
