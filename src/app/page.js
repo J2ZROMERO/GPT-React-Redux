@@ -8,8 +8,14 @@ export default function Home() {
   const [value, setValue] = useState(null);
   const [message, setMessage] = useState(null);
   const [previuosChats, setPreviousChats] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState(null);
 
+
+  const handleClick = (uniqueTitle) => {
+    setCurrentTitle(uniqueTitle);
+  }
+  
+    
   const getMessages = async () => {
     const options = {
       method: "POST",
@@ -34,8 +40,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log(currentTitle, value, message);
-
     if (!currentTitle && value && message) {
       setCurrentTitle(value);
     }
@@ -54,20 +58,22 @@ const createNewChat = () => {
   setCurrentTitle(null);
 }
 
+
 const currentChat  = previuosChats.filter(previuosChat => previuosChat.title === currentTitle)
 
 
-  console.log(previuosChats);
+
+const uniqueTitles  = Array.from(new Set(previuosChats.map(previuosChat => previuosChat.title)))
+
+
   return (
     <Container fluid className="app">
       <Container fluid className="side-bar d-flex flex-column">
         <Button variant="outline-info mt-3 w-100" onClick={createNewChat}>+ New Chat</Button>
         <ListGroup className="history mt-4 h-100">
-          {currentChat.map((chatMessage,index  ) =>
-           <ListGroup.Item key={index} action>
-
-          </ListGroup.Item>)}
           
+        {uniqueTitles?.map((uniqueTitle,index) => <ListGroup.Item key={index} action onClick={()=>handleClick(uniqueTitle)}> {uniqueTitle}</ListGroup.Item> )}  
+        
         </ListGroup>
 
         <Navbar>
@@ -76,9 +82,18 @@ const currentChat  = previuosChats.filter(previuosChat => previuosChat.title ===
       </Container>
 
       <Container className="main">
-        {!currentTitle && <h1> Jose-GPT</h1>}
 
-        <ListGroup className="feed"></ListGroup>
+        <ListGroup className="feed">
+        {!currentTitle && <h1 className="nameTitle"> Jose-GPT</h1>}
+        <div className="chatContainer mt-3">
+        {currentChat?.map((chatMessage,index  ) =>
+           
+           <ListGroup.Item className="mt-1" key={index} action>
+              <p >{chatMessage.role}</p>
+              <p className="">{chatMessage.content}</p>
+          </ListGroup.Item>)}
+          </div>
+        </ListGroup>
         <Container className="bottom-section">
           <Container className="input-container p-0">
             <Container className="submit ml-0 mr-0 p-0">
