@@ -1,12 +1,14 @@
+require('dotenv').config();
 const PORT = 8000;
-
 const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const API_KEY = "";
+const API_KEY =  process.env.API_KEY_GPT;
+
+console.log(API_KEY + "this is here")
 
 app.post("/completions", async (req, res) => {
   const options = {
