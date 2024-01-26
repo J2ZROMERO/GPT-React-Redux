@@ -4,5 +4,15 @@
 
 html, body{
  height: 100vh;   
- width: 100vh;
+ width: 100%;
+ background-color: white;
+}
+
+.app {
+    background-color: white;
+}
+
+.history {
+    background-color: blue;
+    height: 885vh;
 }
